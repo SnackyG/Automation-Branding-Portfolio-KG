@@ -1,3 +1,5 @@
+import laptop from '../assets/laptop.jpg';
+
 export default function AutomationBrandingPreview() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 ">
@@ -29,7 +31,7 @@ export default function AutomationBrandingPreview() {
   <div className="mx-auto max-w-7xl px-4 py-12 md:py-20 relative">
     {/* Hero background constrained to container */}
     <img
-      src="/laptop.jpg"
+      src={laptop}
       alt="Laptop with glowing screen on dark table"
       className="absolute inset-0 -z-10 h-full w-full object-cover object-right rounded-2xl opacity-30"
     />
