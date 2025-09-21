@@ -4,6 +4,7 @@ import makeLogo from './assets/MakeLogo.png';
 import uipath from './assets/uipath-logo-transparent.png';
 import n8n from './assets/N8nLogo.png';
 import zapier from './assets/Zapier_logo.svg';
+import profilePhoto from './assets/profilePhotoRound.png';
 
 
 
@@ -253,30 +254,30 @@ export default function AutomationBrandingPreview() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="order-2 md:order-1">
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Om mig</h2>
-            <p className="mt-4 text-neutral-300">
-              Datamatiker‑studerende, junior konsulent & automations udvikler, der bygger automationer i praksis og deler processen åbent.
-              Jeg fokuserer på simple, stabile løsninger og klare læringspointer—så andre kan genbruge mine erfaringer.
-            </p>
-            <ul className="mt-6 list-disc space-y-2 pl-4 text-sm text-neutral-300">
-              <li>Fokus: Power Automate, UiPath, n8n, Make, Zapier</li>
-              <li>Emner: Ai-beslutnings-flow, SoMe-output-flows, standard RPA automatiseringer</li>
-              <li>Community‑CTA: del dine flows—jeg fremhæver de bedste i bloggen</li>
-            </ul>
-          </div>
-          <div className="order-1 md:order-2 flex justify-center items-center">
-            <img
-              src="/profilePhotoRound.png"
-              alt="Portrætbillede (placeholder)"
-              className="rounded-full max-w-xs h-auto"
-            />
-          </div>
-        </div>
-      </section>
+     {/* ABOUT */}
+<section id="about" className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+  <div className="grid items-center gap-10 md:grid-cols-2">
+    <div className="order-2 md:order-1">
+      <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Om mig</h2>
+      <p className="mt-4 text-neutral-300">
+        Datamatiker‑studerende, junior konsulent & automations udvikler, der bygger automationer i praksis og deler processen åbent.
+        Jeg fokuserer på simple, stabile løsninger og klare læringspointer—så andre kan genbruge mine erfaringer.
+      </p>
+      <ul className="mt-6 list-disc space-y-2 pl-4 text-sm text-neutral-300">
+        <li>Fokus: Power Automate, UiPath, n8n, Make, Zapier</li>
+        <li>Emner: Ai-beslutnings-flow, SoMe-output-flows, standard RPA automatiseringer</li>
+        <li>Community‑CTA: del dine flows—jeg fremhæver de bedste i bloggen</li>
+      </ul>
+    </div>
+    <div className="order-1 md:order-2 flex justify-center items-center">
+      <img
+        src={profilePhoto}
+        alt="Portrætbillede (placeholder)"
+        className="rounded-full max-w-xs h-auto"
+      />
+    </div>
+  </div>
+</section>
 
       {/* CONTACT / CTAs */}
       <section id="contact" className="relative">
