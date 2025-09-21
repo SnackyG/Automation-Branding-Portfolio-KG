@@ -1,4 +1,11 @@
-import laptop from '../assets/laptop.jpg';
+import laptop from './assets/laptop.jpg';
+import powerAutomate from './assets/Power-Automate-Logo.webp';
+import makeLogo from './assets/MakeLogo.png';
+import uipath from './assets/uipath-logo-transparent.png';
+import n8n from './assets/N8nLogo.png';
+import zapier from './assets/Zapier_logo.svg';
+
+
 
 export default function AutomationBrandingPreview() {
   return (
@@ -31,7 +38,7 @@ export default function AutomationBrandingPreview() {
   <div className="mx-auto max-w-7xl px-4 py-12 md:py-20 relative">
     {/* Hero background constrained to container */}
     <img
-      src={laptop}
+      src={laptop} // Use the imported image
       alt="Laptop with glowing screen on dark table"
       className="absolute inset-0 -z-10 h-full w-full object-cover object-right rounded-2xl opacity-30"
     />
@@ -120,7 +127,7 @@ export default function AutomationBrandingPreview() {
         </div>
       </section>
 
-     {/* TECH EXPLAINERS */}
+{/* TECH EXPLAINERS */}
 <section id="tech" className="mx-auto max-w-7xl px-4 py-16 md:py-20">
   <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
     Tech Explainers
@@ -133,7 +140,7 @@ export default function AutomationBrandingPreview() {
     {[
       {
         name: "Power Automate",
-        img: "/Power-Automate-Logo.webp",
+        img: powerAutomate,
         bullets: [
           "God i Microsoft 365-stack",
           "Hurtig at komme i gang",
@@ -142,7 +149,7 @@ export default function AutomationBrandingPreview() {
       },
       {
         name: "UiPath",
-        img: "/uipath-logo-transparent.png",
+        img: uipath,
         bullets: [
           "Stærk til legacy/desktop",
           "Enterprise features",
@@ -151,12 +158,12 @@ export default function AutomationBrandingPreview() {
       },
       {
         name: "n8n",
-        img: "/N8nLogo.png",
+        img: n8n,
         bullets: ["Self-host", "Open source", "Fleksibel nodes"],
       },
       {
         name: "Make.com",
-        img: "/MakeLogo.png",
+        img: makeLogo,
         bullets: [
           "Visuelt let",
           "Mange integrationer",
@@ -165,7 +172,7 @@ export default function AutomationBrandingPreview() {
       },
       {
         name: "Zapier",
-        img: "/Zapier_logo.svg",
+        img: zapier,
         bullets: [
           "Hurtig prototyping",
           "Stor app-økologi",
@@ -174,7 +181,7 @@ export default function AutomationBrandingPreview() {
       },
       {
         name: "Best practice",
-        img: "/checklist-icon.png",
+        // img: checklist, // Remove or comment out this line
         bullets: [
           "Fejlhåndtering",
           "Logging/monitorering",
