@@ -468,7 +468,7 @@ function HomePage() {
             <img
               src={heroLaptop}
               alt="Laptop workspace hero"
-              className="w-full h-full object-cover opacity-40"
+              className="w-full h-full object-cover opacity-99"
               loading="eager"
               decoding="async"
             />
