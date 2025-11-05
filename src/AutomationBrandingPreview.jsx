@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import profilePhoto from './assets/profilePhotoRound.png';
 import heroLaptop from './assets/laptop.jpg';
+import powerAutomateLogo from './assets/Power-Automate-Logo.webp';
+import uipathLogo from './assets/uipath-logo-transparent.png';
+import n8nLogo from './assets/N8n-logo-new.svg';
+import makeLogo from './assets/MakeLogo.png';
+import zapierLogo from './assets/Zapier_logo.svg';
 
 // Blog post data
 const blogPosts = [
@@ -45,6 +50,38 @@ const techExplainers = [
   { id: 'zapier', name: 'Zapier', bullets: ['Hurtig prototyping', 'Stor app-økologi', 'Begrænsning v. skala'] },
   { id: 'best-practice', name: 'Best practice', bullets: ['Fejlhåndtering', 'Logging/monitorering', 'ROI-måling'] },
 ];
+
+// Generated gradient cover (no external images)
+function GeneratedCover({ seed = 'X', label, ratio = 'aspect-[4/3]' }) {
+  const text = label || (seed && seed[0] ? seed[0] : '•');
+  // deterministic hue from seed
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash + seed.charCodeAt(i)) | 0;
+  }
+  const hue = ((hash % 360) + 360) % 360;
+  const hue2 = (hue + 35) % 360;
+  const bg = `linear-gradient(135deg, hsl(${hue} 70% 12%), hsl(${hue2} 70% 8%))`;
+  const grid = `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 1px)`;
+
+  return (
+    <div className={`${ratio} relative overflow-hidden rounded-2xl`}>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `${bg}, ${grid}`,
+          backgroundSize: `100% 100%, 24px 24px`,
+          backgroundBlendMode: 'normal, overlay',
+        }}
+      />
+      <div className="relative z-10 flex h-full w-full items-center justify-center">
+        <span className="select-none text-6xl md:text-7xl font-bold text-white/15">
+          {text}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 // Router component
 function Router() {
@@ -254,9 +291,7 @@ Drop a comment below with what you'd like to see next, or if you've got your own
           <p className="text-xl text-neutral-300">{post.excerpt}</p>
         </header>
 
-        <div className="aspect-[2/1] mb-12 overflow-hidden rounded-2xl">
-          <img src={post.img} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
-        </div>
+        <GeneratedCover seed={post.title} label="📝" ratio="aspect-[2/1]" />
 
         <div className="prose prose-invert prose-neutral max-w-none">
           {blogContent.split('\n').map((line, i) => {
@@ -327,9 +362,7 @@ function ProjectDetail({ id }) {
           <p className="text-neutral-300">Læring: {item.learn}</p>
         </header>
 
-        <div className="aspect-[2/1] mb-12 overflow-hidden rounded-2xl">
-          <img src={item.img} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
-        </div>
+        <GeneratedCover seed={item.title} label="⚙️" ratio="aspect-[2/1]" />
 
         <div className="prose prose-invert prose-neutral max-w-none">
           <p>
@@ -526,14 +559,7 @@ function HomePage() {
             },
           ].map((p, i) => (
             <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition-colors">
-              <div className="aspect-[4/3] overflow-hidden bg-neutral-900">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+              <GeneratedCover seed={p.title} label="⚙️" />
               <div className="space-y-3 p-5">
                 <h3 className="text-lg font-semibold">{p.title}</h3>
                 <div className="text-sm text-neutral-300">
@@ -572,34 +598,45 @@ function HomePage() {
             {
               name: "Power Automate",
               bullets: ["God i Microsoft 365-stack", "Hurtig at komme i gang", "Low kode"],
+              img: powerAutomateLogo,
             },
             {
               name: "UiPath",
               bullets: ["Stærk til legacy/desktop", "Enterprise features", "Robuste workflows"],
+              img: uipathLogo,
             },
             {
               name: "n8n",
               bullets: ["Self-host", "Open source", "Fleksibel nodes"],
+              img: n8nLogo,
             },
             {
               name: "Make.com",
               bullets: ["Visuelt let", "Mange integrationer", "God til prototyper"],
+              img: makeLogo,
             },
             {
               name: "Zapier",
               bullets: ["Hurtig prototyping", "Stor app-økologi", "Begrænsning v. skala"],
+              img: zapierLogo,
             },
             {
               name: "Best practice",
               bullets: ["Fejlhåndtering", "Logging/monitorering", "ROI-måling"],
+              img: heroLaptop,
             },
           ].map((t, i) => (
             <div
               key={i}
               className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition-colors"
             >
-              <div className="flex h-40 w-full items-center justify-center bg-white/5">
-                <div className="text-6xl font-bold text-white/10">{t.name[0]}</div>
+              <div className="relative h-40 w-full overflow-hidden bg-white/5">
+                <img
+                  src={t.img}
+                  alt={`${t.name} logo`}
+                  className="absolute inset-0 h-full w-full object-contain p-6 filter grayscale opacity-80 saturate-50 contrast-90"
+                  loading="lazy"
+                />
               </div>
 
               <div className="p-5">
@@ -629,14 +666,7 @@ function HomePage() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <article key={post.id} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition-colors">
-              <div className="aspect-[4/3] overflow-hidden bg-neutral-900">
-                <img
-                  src={post.img}
-                  alt={post.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+              <GeneratedCover seed={post.title} label="📝" />
               <div className="space-y-3 p-5">
                 <div className="flex items-center gap-2 text-xs text-neutral-400">
                   <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('da-DK', { month: 'short', day: 'numeric' })}</time>
