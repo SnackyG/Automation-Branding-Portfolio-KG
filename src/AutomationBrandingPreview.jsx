@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import profilePhoto from './assets/profilePhotoRound.png';
+import heroLaptop from './assets/laptop.jpg';
 
 // Blog post data
 const blogPosts = [
@@ -462,7 +464,16 @@ function HomePage() {
 
       <section id="home" className="relative isolate bg-neutral-950">
         <div className="mx-auto max-w-7xl px-4 py-12 md:py-20 relative">
-          <div className="absolute inset-0 -z-10 h-full w-full rounded-2xl opacity-30 bg-gradient-to-br from-neutral-800 to-neutral-950" />
+          <div className="absolute inset-0 -z-10 h-full w-full rounded-2xl overflow-hidden">
+            <img
+              src={heroLaptop}
+              alt="Laptop workspace hero"
+              className="w-full h-full object-cover opacity-40"
+              loading="eager"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/60 to-neutral-950/80" />
+          </div>
 
           <div className="relative max-w-3xl">
             <div className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
@@ -661,9 +672,7 @@ function HomePage() {
             </ul>
           </div>
           <div className="order-1 md:order-2 flex justify-center items-center">
-            <div className="w-64 h-64 rounded-full bg-gradient-to-br from-neutral-700 to-neutral-900 flex items-center justify-center text-6xl font-bold">
-              KG
-            </div>
+           <div className="w-64 h-64 rounded-full p-[3px] bg-gradient-to-br from-neutral-700 to-neutral-900"> <img src={profilePhoto} alt="Klaus Gregersen" className="w-full h-full rounded-full object-cover" width="256" height="256" loading="lazy" decoding="async" /> </div>
           </div>
         </div>
       </section>
